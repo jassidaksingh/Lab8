@@ -37,16 +37,13 @@ public class CustomListTest {
         assertEquals(list.getCount(),listSize + 1);
     }
 
-    @Test
-    public void hasCityTest() {
-        CustomList list = new CustomList(null, new ArrayList<>());
-
-        // Test when city is present
-        list.addCity(new City("Estevan", "SK"));
-        assertTrue(list.hasCity("Estevan"));
-
-        // Test when city is not present
-        assertFalse(list.hasCity("Regina"));
+    @org.junit.Test
+    public void testHasCity() {
+        CustomList cityList = MockCityList();
+        City city = new City("Calgary", "Alberta");
+        assertFalse(cityList.hasCity(city));
+        cityList.add(city);
+        assertTrue(cityList.hasCity(city));
     }
 
 }
